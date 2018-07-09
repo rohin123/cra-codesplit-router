@@ -1,5 +1,5 @@
 {
-  "name": "ssr+code-splitting+react-router",
+  "name": "ssr-codesplit-router",
   "version": "0.1.0",
   "private": false,
   "homepage": "./",

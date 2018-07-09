@@ -31,17 +31,17 @@ class App extends Component {
                     <img src="/logo.svg" className="App-logo" alt="logo"/>
                     <h1 className="App-title">Welcome to React</h1>
                 </header>
-                <div className="App-intro">
+                <section className="App-intro">
                     <AsyncComponent />
                     <p>
                         Redux: { this.props.message }
                     </p>
-                </div>
-                <div>
+                </section>
+                <section>
                   <Link to='/home'>Home</Link>
                   <Link to='/profile'>Profile</Link>
                   <Link to='/career'>Career</Link>
-                </div>
+                </section>
                 {(this.props.routes||[]).map((route)=><RoutesWithSubRoutes {...route}/>)}
             </div>
         );

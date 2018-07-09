@@ -10,13 +10,13 @@ const AsyncComponent = Loadable({
 });
 
 export default (props)=>(
-  <div>
-    <div>Hi Profile</div>
+  <section>
+    <h2>Hi Profile</h2>
     <AsyncComponent/>
     <div>
       <Link to='/profile/childRoute1'>RouteChild1</Link>
       <Link to='/profile/childRoute2'>RouteChild2</Link>
     </div>
     {props.routes.map((route)=> <RoutesWithSubRoutes {...route}/>)}
-  </div>
+  </section>
 )

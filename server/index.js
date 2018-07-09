@@ -11,12 +11,11 @@ const PORT = 3000;
 const app = express();
 
 app.use(express.static(
-    path.resolve(__dirname, '..', 'dist'),
+  path.resolve(__dirname, '..', 'dist'),
     { maxAge: '30d',
       fallthrough:true,
       index:false},
 ));
-
 
 app.use('/',
         (req,res,next)=>{console.log('indexController',req.url); next();},

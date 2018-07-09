@@ -26,7 +26,7 @@ export default (store) => (req, res, next) => {
   console.log('renderer start',req.url)
     // get the html file created with the create-react-app build
     const branch = matchRoutes(routes, req.url)
-    console.log(branch)
+
     const filePath = path.resolve(__dirname, '..', '..', 'index.html');
 
     fs.readFile(filePath, 'utf8', (err, htmlData) => {
@@ -37,7 +37,7 @@ export default (store) => (req, res, next) => {
 
         const modules = [];
         const context = {};
-        console.log("renderer url",req.url,typeof req.url)
+
         // render the app as a string
         const html = ReactDOMServer.renderToString(
             <Loadable.Capture report={m => modules.push(m)}>
@@ -51,19 +51,15 @@ export default (store) => (req, res, next) => {
             </Loadable.Capture>
         );
 
-        console.log("renderer html",html)
-        console.log("renderer context",context)
         // get the stringified state
         const reduxState = JSON.stringify(store.getState());
 
-        console.log(modules)
         // map required assets to script tags
         const extraChunks = extractAssets(manifest, modules)
             .map(c => `<script type="text/javascript" src="/${c}"></script>`);
 
         const mainJs = `<script type="text/javascript" src="/${manifest['main.js']}"></script>`
 
-        console.log(extraChunks)
         // now inject the rendered app into our html and send it to the client
         return res.send(
             htmlData

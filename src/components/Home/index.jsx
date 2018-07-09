@@ -3,19 +3,14 @@ import RoutesWithSubRoutes from '../../helpers/routeswithsubroutes'
 import { Link } from 'react-router-dom'
 
 export default (props)=>{
-  console.log(props);
   return (
-    <div>
-      <div>Hi Home</div>
+    <section>
+      <h2>Hi Home</h2>
       <div>
         <Link to='/home/childRoute1'>RouteChild1</Link>
         <Link to='/home/childRoute2'>RouteChild2</Link>
       </div>
       {props.routes.map((route)=> <RoutesWithSubRoutes {...route}/>)}
-    </div>
+    </section>
   )
 }
-
-// export default ()=>(
-//   <div>Hi Home</div>
-// )

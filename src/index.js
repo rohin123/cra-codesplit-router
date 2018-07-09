@@ -13,7 +13,7 @@ import {
 } from 'react-router-dom'
 // import registerServiceWorker from './registerServiceWorker';
 const store = configureStore( window.__REDUX_STATE__ || {} );
-console.log("array",routes.map((route)=><RoutesWithSubRoutes {...route}/>))
+
 const AppBundle = (
     <ReduxProvider store={store}>
       <Router>

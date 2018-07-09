@@ -1,5 +1,5 @@
 import React from 'react'
 
 export default ()=>(
-  <div>SomeOtherComponent</div>
+  <p>Async loaded paragraph</p>
 )
